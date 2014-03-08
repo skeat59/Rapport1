@@ -1,0 +1,128 @@
+
+\documentclass [11pt]{report}
+
+\usepackage{fancyhdr}
+\usepackage [french]{babel}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{titlepic}
+\usepackage{boxedminipage}
+\usepackage{listings}
+\usepackage{minitoc}
+\usepackage{footmisc}
+\usepackage{color}
+\usepackage{graphicx}
+
+\usepackage{eso-pic}
+
+\makeatletter
+\newlength\@tempdim@x
+\newlength\@tempdim@y
+% structure des commandes :
+%   #1 = deplacement selon x
+%   #2 = deplacement selon y
+%   #3 = texte à mettre
+\newcommand\AtUpperLeftCorner[3]{%
+\begingroup
+\@tempdim@x=0cm
+\@tempdim@y=\paperheight
+\advance\@tempdim@x#1
+\advance\@tempdim@y-#2
+\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+\endgroup
+}
+\newcommand\AtUpperRightCorner[3]{%
+\begingroup
+\@tempdim@x=\paperwidth
+\@tempdim@y=\paperheight
+\advance\@tempdim@x-#1
+\advance\@tempdim@y-#2
+\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+\endgroup
+}
+\newcommand\AtLowerLeftCorner[3]{%
+\begingroup
+\@tempdim@x=0cm
+\@tempdim@y=0cm
+\advance\@tempdim@x#1
+\advance\@tempdim@y#2
+\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+\endgroup
+}
+\newcommand\AtLowerRightCorner[3]{%
+\begingroup
+\@tempdim@x=\paperwidth
+\@tempdim@y=0cm
+\advance\@tempdim@x-#1
+\advance\@tempdim@y#2
+\put(\LenToUnit{\@tempdim@x},\LenToUnit{\@tempdim@y}){#3}%
+\endgroup
+}
+% ajout de texte ou d'images en haut à gauche, en haut à droite, etc.
+\AddToShipoutPicture{%
+\AtLowerRightCorner{3cm}{1cm}{\includegraphics[scale=0.20]{images/LogoGroupe.png}}% image en bas à droite
+}
+\makeatother
+
+\pagestyle{fancy}
+
+
+
+\title{
+	\includegraphics[scale=0.43]{images/Logojeu.png}
+	 \\\vspace{20mm}
+	\textbf{\Huge \itshape Cahier des charges }
+	}
+
+
+
+
+\author{ \\\vspace{2mm}
+	Thibault Gdalia\\\vspace{2mm}
+	Florent Youinou\\\vspace{2mm}
+	Mathilde Laplaze\\\vspace{2mm}
+	Vincent Baille \\\vspace{30mm}
+	}
+
+
+\date{17 janvier 2014}
+
+
+\begin{document}
+
+\renewcommand{\baselinestretch}{0.001}
+\maketitle
+\tableofcontents
+
+\newpage
+
+
+\textbf{{\Huge Introduction}}\\
+\\
+\\
+\chapter{Avancement du Projet}
+	\section{Moteur Physique}
+		Le moteur physique est vraiment la base de notre jeu, donc tout naturellement il était notre plus grand centre d'attention durant cette première partie de notre projet. nosu avons fait en sorte qu'il soit efficace et que l'on puisse le moduler aisément modulable pour que l'on puisse s'amuser a changé les propriétés physique de chaque map.\\
+		\indent Au début nous avions fait une collision par rectangle, mais notre oiseaux est rond... Nous sommes d'accord que ce n'est pas une bonne idée. Par la suite nous avons remédier a ce problème qui n'en est pas réellement un. Nous nous sommes orienté vers une collision par pixel qui s'avère être beaucoup plus intéressante pour nous.
+	\section{Réseau}
+
+	\section{Son}
+	Nous savons que tout bon jeu est accompagné d'une vraie bibliothèque de sons, c'est pourquoi Mattou s'est vraiment concentré sur cette aspect du projet il a fallu tout d'abord qu'elle recherche les musique et les effets sonore adéquat pour que l'ambiance lorsque vous êtes dans le jeu soit optimale. Puis nous voulions que ce soit trés structuré dans le projet pour ne pas avoir des sons en vrac dans nos Contents, notre solution: utiliser Xact. 
+	\section{\'Editeur de Map}
+
+	\section{Site Web}
+
+	\section{Graphique}
+
+\chapter{Et Après?}
+	\section{Réseaux Multijoueur}
+
+	\section{Nouveaux Personnage}
+
+	\section{Graphismes}
+\newpage
+\textbf{{\huge Conclusion}}
+\end {document}
