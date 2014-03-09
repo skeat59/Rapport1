@@ -8,6 +8,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage{graphicx}
+\usepackage[a4paper]{geometry}
 \usepackage{titlepic}
 \usepackage{boxedminipage}
 \usepackage{listings}
@@ -72,6 +73,8 @@
 
 
 
+
+
 \title{
 	\includegraphics[scale=0.43]{images/Logojeu.png}
 	 \\\vspace{20mm}
@@ -92,8 +95,22 @@
 \date{17 janvier 2014}
 
 
-\begin{document}
+\usepackage{listings,mdframed,xcolor}
+\definecolor{codeBackground}{rgb}{0.95, 0.95, 0.95} %Couleur du rectangle%
 
+
+\lstnewenvironment{mylisting}{
+  \lstset{
+  }
+  \mdframed[backgroundcolor=codeBackground,shadow=false,shadowsize=2pt,shadowcolor=black!30]
+}
+{
+  \endmdframed\ignorespaces
+}
+
+
+\begin{document}
+\thispagestyle{fancy}
 \renewcommand{\baselinestretch}{0.001}
 \maketitle
 \tableofcontents
@@ -119,20 +136,25 @@
 		
 		Exemple :
 		
-		\begin{Verbatim}
-	if(SpritePosition.Y <= ScreenHeight)
-	{
+		\begin{mylisting}
+		
+if(SpritePosition.Y <= ScreenHeight)
+{
 	// On peux bouger horizontalement l'oiseau
-	}
-	else
-	{
-	// On laisse l'oiseau à sa position
-	}
-		\end{Verbatim}
+}
+else
+{
+	// On laisse l'oiseau a sa position
+}
+		\end{mylisting}
+	\vspace{10mm}
 		
 				
 		\indent Du coté de la gestion des obstacles, nous les avons fais sous forme de rectangle qui contiennent les images des blocs. Nous avions dans un premier temps implémenté une collision basique, rectangulaire, qui fonctionnait avec ces rectangles. Cette collision marchait assez bien mais notre oiseaux est rond, et les images des obstacles ne sont pas forcément rectangulaire non plus, ce n'était donc pas la solution la plus optimale... 
 		Pour remédier à ce problème, l'idée nous est donc venue de passer par une collision par pixel, bien plus adaptée à l'utilisation que l'on en fait dans notre jeux. Le problème de cette collision, c'est qu'elle est très gourmande puisque même en étant optimisée au maximum, elle parcours beaucoup de pixel. Il a donc fallut assemblé les deux test, collision rectangulaire puis par pixel afin de ne pas tester une collision par pixel avec le rectangle d'un bloc si il ne touche pas le rectangle du personnage.
+	
+	
+	\vspace{10mm}
 	
 	\section{Réseau}
 	Comme expliqué dans l'introduction, notre jeux permet, si l'on est connecté, d'envoyer le score à la base de données du site web.\\
@@ -143,48 +165,58 @@
 	Avec quelques tutos en ligne et les connaissances de T4ze dans le domaine du Web, la compréhension et l'implémentation des fonctions fut assez simple et fonctionnel rapidemment.
 	
 	
-	
+	\vspace{10mm}
 
 
 	\section{Son}
 	Nous savons que tout bon jeu est accompagné d'une vraie bibliothèque de sons, c'est pourquoi Mattou s'est vraiment concentré sur cette aspect du projet il a fallu tout d'abord qu'elle recherche les musique et les effets sonore adéquat pour que l'ambiance lorsque vous êtes dans le jeu soit optimale. Puis nous voulions que ce soit trés structuré dans le projet pour ne pas avoir des sons en vrac dans nos Contents, notre solution: utiliser Xact. 
 	
 	
-	
+	\vspace{10mm}
 	
 	
 	\section{\'Etat de jeux}
+	Pour naviguer dans le jeux nous avons mis différents "États". \\
+	
+	Dans les premiers jours de code, nous avons rencontré quelques difficultés dans l'agencement de ces états puisque tout était placé dans le Game1 et ce n'était donc vraiment pas simple de s'y retrouver et de modifier correctement les updates nécessaire et des bons affichage. En ecoutant des étudiants de niveau supérieur, la solution la plus claire était de faire une pile d'état qui n'afficherais et ne mettrais a jour que le haut de la pile.
+	
+	Après des recherches, quelques test et des ratés face à cette utilisation de pile, la combinaison d'une énumération d'états et d'un switch c'est avéré correspondre aussi bien à nos attentes. Cela nous a permis de simplifier au maximum le code dans le Game1 et de créer des Classes pour chaque états.\\
 			
+	\noindent Morceau de code extrait de l'update() actuel du Game1 :
+	
+	
+	\begin{mylisting}
 			
-		
-	\begin{Verbatim}
 	switch (CurrentGameState)
 	{
 		case GameState.MainMenu:
 			MenuMain.Update(gameTime);
 			break;
-		
+			
 		case GameState.Playing:
 			Partie.Update(gameTime);
 			break;
-		
+			
 		case GameState.Pause:
 			MenuPause.Update(gameTime);
 			break;
-		
+			
 		case GameState.Dead:
 			MenuDead.Update(gameTime);		
 			break;
-		
+			
 		case GameState.Win:
 			MenuWin.Update(gameTime);
 			break;
 	}
-	\end{Verbatim}
+			\end{mylisting}
+	
+	\vspace{10mm}
+	
+	C'est, comme vous l'aurez sans doute compris, dans le "GameState.Playing" que le gros du jeux se passe puisque c'est la partie qui correspond au jeux en lui même.
 	
 	
-	
-	
+	\vspace{10mm}
 	
 	
 	\section{\'Editeur de Map}
@@ -192,7 +224,7 @@
 	les "0" correspondent à un espace vide, les 4 sont eux des obstacles et 3 sont les fameux bonbons permettant de regagner de l'énergie.
 	\indent Il est bien entendu que nous n'allons pas écrire toutes nos maps à la main cela serait trop long et très très lassant. Donc nous avons créé un éditeur de maps qui écrira dans le fichier .lvl pour nous avons juste a cliquer un peu partout pour avoir une map (SUPER) %photo éditeur 
 	 
-	 
+	 \vspace{10mm}
 	 
 	\section{Site Web}
 	
@@ -202,9 +234,16 @@
 	\end{Verbatim}
 	
 	Dans un esprit pédagogue, nous avons choisis de réaliser notre site à la main plutôt que d'utiliser un CMS (Wordpress ou autre). T4ze avait déjà, auparavant, monter différents site web et il a ainsi pu s'occuper de cette partie sans trop de problèmes. Le site regroupe actuellement une présentation rapide de notre projet accompagnée d'images qui illustrent les différentes parties de notre jeu. Chaque membres du groupe a sa page personnelle, avec une petite présentation ainsi qu'une photo (la classe). Pour la partie pratique, vous pouvez télécharger nos différents rapports, en LaTeX ou en PDF, ainsi que la version du code source présentée lors des différentes soutenances directement depuis le site. De plus, une page est réservée à l'inscription (avec enregistrement de carte bleu tout ça tout ça... histoire de rembourser tout nos frais de l'année). Cette partie n'est pas obligatoire mais recommandée puisque qu'il faut se connecter au jeux pour accéder au mode multijoueur et avoir l'envoie de score en ligne en fin de partie.\\
+	\vspace{4mm}
+	\begin{center}
+	\includegraphics[scale=0.5]{images/site.png}
+	\end{center}
+	
+	\vspace{10mm}
 	
 	Pour rester à l'écoute de nos admirateurs, une page de contact est disponible. Vous avez donc la possibilité de nous laisser des commentaires ou de nous suggérer des améliorations (pas de signalement de bugs puisque nous codons assez bien pour qu'il n'y en ai pas). Et pour ceux qui aiment être toujours informé, nous tenons une page facebook dont un raccourci est visible sur le site (à gauche dans le pied de page).
 	
+	\vspace{10mm}
 	
 	\section{Graphique}
 	La partie a était compliqué suite au départ d'Adrien qui n'était pas prévue, il était le plus expérimenté d'entre nous avec les logiciels de graphismes (Photoshop en l'occurrence). Il fallu très vite apprendre les bases de ce logiciel afin de pouvoir réutiliser les travaux déjà produit par Adrien. Nous avons donc du faire face a ce petit problème car un jeu avec des graphismes mal fini n'ai pas très attirant et le savons bien.\\
