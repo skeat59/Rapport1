@@ -101,6 +101,7 @@
 \newpage
 
 
+
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
@@ -132,41 +133,98 @@
 				
 		\indent Du coté de la gestion des obstacles, nous les avons fais sous forme de rectangle qui contiennent les images des blocs. Nous avions dans un premier temps implémenté une collision basique, rectangulaire, qui fonctionnait avec ces rectangles. Cette collision marchait assez bien mais notre oiseaux est rond, et les images des obstacles ne sont pas forcément rectangulaire non plus, ce n'était donc pas la solution la plus optimale... 
 		Pour remédier à ce problème, l'idée nous est donc venue de passer par une collision par pixel, bien plus adaptée à l'utilisation que l'on en fait dans notre jeux. Le problème de cette collision, c'est qu'elle est très gourmande puisque même en étant optimisée au maximum, elle parcours beaucoup de pixel. Il a donc fallut assemblé les deux test, collision rectangulaire puis par pixel afin de ne pas tester une collision par pixel avec le rectangle d'un bloc si il ne touche pas le rectangle du personnage.
-		
-		
-	\section{Réseau}
 	
+	\section{Réseau}
+	Comme expliqué dans l'introduction, notre jeux permet, si l'on est connecté, d'envoyer le score à la base de données du site web.\\
+	
+	Pour gérer cet accès, nous avons préalablement implémenté la classe DBConnect.cs dans un projet annexe afin de pouvoir facilement tester les fonctions d'ajout de données, de suppression, de mise à jour, de test d'existence de valeur et de listage que nous préparions. Certaines fonctions ne nous sont pas utile dans l'état actuel du jeux, mais si l'on veux par la suite rajouter des options tel que s'inscrire depuis le jeux, afficher le classement ou encore changer de pseudo, elles seront déjà prête.\\
+	
+	La gestion de base de donnée utilise une Dll nommée "Mysql.Data" car il n'est, par défaut, pas possible de communiquer entre le jeux en C\# et la base de données en MySql. 
+	Avec quelques tutos en ligne et les connaissances de T4ze dans le domaine du Web, la compréhension et l'implémentation des fonctions fut assez simple et fonctionnel rapidemment.
 	
 	
 	
 
+
 	\section{Son}
-	Nous savons que tout bon jeu est accompagné d'une vraie bibliothèque de sons, c'est pourquoi Mattou s'est vraiment concentrée sur cet aspect du projet. Il a fallu tout d'abord qu'elle recherche les musiques et les effets sonores adéquats pour que l'ambiance lorsque vous êtes dans le jeu soit optimale. Puis nous voulions que ce soit très structuré dans le projet pour ne pas avoir des sons en vrac dans nos Contents, notre solution: utiliser Xact. 
+	Nous savons que tout bon jeu est accompagné d'une vraie bibliothèque de sons, c'est pourquoi Mattou s'est vraiment concentré sur cette aspect du projet il a fallu tout d'abord qu'elle recherche les musique et les effets sonore adéquat pour que l'ambiance lorsque vous êtes dans le jeu soit optimale. Puis nous voulions que ce soit trés structuré dans le projet pour ne pas avoir des sons en vrac dans nos Contents, notre solution: utiliser Xact. 
 	
-	\newpage
+	
+	
+	
+	
+	\section{\'Etat de jeux}
+			
+			
+		
+	\begin{Verbatim}
+	switch (CurrentGameState)
+	{
+		case GameState.MainMenu:
+			MenuMain.Update(gameTime);
+			break;
+		
+		case GameState.Playing:
+			Partie.Update(gameTime);
+			break;
+		
+		case GameState.Pause:
+			MenuPause.Update(gameTime);
+			break;
+		
+		case GameState.Dead:
+			MenuDead.Update(gameTime);		
+			break;
+		
+		case GameState.Win:
+			MenuWin.Update(gameTime);
+			break;
+	}
+	\end{Verbatim}
+	
+	
+	
+	
+	
+	
 	\section{\'Editeur de Map}
-	Nos Maps sont basées sur des fichiers textes (en .txt) que nous renommons en .lvl pour level (sans blagues). Le fichier est composé de: sur la première ligne le nombre d'élément pouvant se trouvé sur une même colonne, sur la deuxième ligne le nombre d'élément sur une ligne, puis sur le reste c'est la définition de la map % photo du .lvl % 
-	les "0" correspondent à un espace vide, les 4 sont eux des obstacles et les 3 sont les fameux bonbons permettant de regagner de l'énergie.
-	
-	\indent Il est bien entendu que nous n'allons pas écrire toutes nos maps à la main, cela serait trop long et très très lassant. Donc nous avons créé un éditeur de maps qui écrira dans le fichier .lvl pour que nous ayons juste à cliquer un peu partout pour avoir une map (SUPER) %photo éditeur 
+	Nos Maps sont basé sur des fichiers textes (en .txt) que nous renommons en .lvl pour level (sans blagues). Le fichier est composé de: sur la première ligne le nombre d'élement pouvant se trouvé sur une même colonne, sur la deuxième ligne le nombre d'élément sur une ligne, puis sur le reste c'est la définition de la map % photo du .lvl % 
+	les "0" correspondent à un espace vide, les 4 sont eux des obstacles et 3 sont les fameux bonbons permettant de regagner de l'énergie.
+	\indent Il est bien entendu que nous n'allons pas écrire toutes nos maps à la main cela serait trop long et très très lassant. Donc nous avons créé un éditeur de maps qui écrira dans le fichier .lvl pour nous avons juste a cliquer un peu partout pour avoir une map (SUPER) %photo éditeur 
+	 
+	 
 	 
 	\section{Site Web}
-	Notre site, réalisé entièrement sans CMS, regroupe une présentation rapide de notre projet accompagnée d'images illustrant les différentes parties de notre jeu. Chaque membres du groupe a sa page personnelle, avec une petite présentation et une photo (la classe). Pour la partie pratique, vous pouvez télécharger nos différents rapports, en LaTeX ou en PDF, ainsi que la version du code source présentée lors des différentes soutenances directement depuis le site. \\
-	De plus, une page est réservée à l'inscription (avec enregistrement de carte bleu tout ça tout ça... histoire de rembourser tout nos frais de l'année). Cette partie n'est pas obligatoire mais recommandée puisque qu'il faut se connecter au jeux pour accéder au mode multijoueur et avoir l'envoie de score en ligne en fin de partie. Pour rester à l'écoute de nos admirateurs, une page de contact est disponible. Vous avez donc la possibilité de nous laisser des commentaires ou de nous suggérer des améliorations (pas de signalement de bugs puisque nous codons assez bien pour qu'il n'y en ai pas).
 	
+	URL du site web : 
+	\begin{Verbatim}
+	http://www.CandyBird.eu/
+	\end{Verbatim}
+	
+	Dans un esprit pédagogue, nous avons choisis de réaliser notre site à la main plutôt que d'utiliser un CMS (Wordpress ou autre). T4ze avait déjà, auparavant, monter différents site web et il a ainsi pu s'occuper de cette partie sans trop de problèmes. Le site regroupe actuellement une présentation rapide de notre projet accompagnée d'images qui illustrent les différentes parties de notre jeu. Chaque membres du groupe a sa page personnelle, avec une petite présentation ainsi qu'une photo (la classe). Pour la partie pratique, vous pouvez télécharger nos différents rapports, en LaTeX ou en PDF, ainsi que la version du code source présentée lors des différentes soutenances directement depuis le site. De plus, une page est réservée à l'inscription (avec enregistrement de carte bleu tout ça tout ça... histoire de rembourser tout nos frais de l'année). Cette partie n'est pas obligatoire mais recommandée puisque qu'il faut se connecter au jeux pour accéder au mode multijoueur et avoir l'envoie de score en ligne en fin de partie.\\
+	
+	Pour rester à l'écoute de nos admirateurs, une page de contact est disponible. Vous avez donc la possibilité de nous laisser des commentaires ou de nous suggérer des améliorations (pas de signalement de bugs puisque nous codons assez bien pour qu'il n'y en ai pas). Et pour ceux qui aiment être toujours informé, nous tenons une page facebook dont un raccourci est visible sur le site (à gauche dans le pied de page).
 	
 	
 	\section{Graphique}
-	La partie a était compliquée suite au départ d'Adrien qui n'était pas prévue, il était le plus expérimenté d'entre nous avec les logiciels de graphismes (Photoshop en l'occurrence). Il fallu très vite apprendre les bases de ce logiciel afin de pouvoir réutiliser les travaux déjà produit par Adrien. Nous avons donc du faire face a ce petit problème car un jeu avec des graphismes mal fini n'ai pas très attirant et le savons bien.\\
+	La partie a était compliqué suite au départ d'Adrien qui n'était pas prévue, il était le plus expérimenté d'entre nous avec les logiciels de graphismes (Photoshop en l'occurrence). Il fallu très vite apprendre les bases de ce logiciel afin de pouvoir réutiliser les travaux déjà produit par Adrien. Nous avons donc du faire face a ce petit problème car un jeu avec des graphismes mal fini n'ai pas très attirant et le savons bien.\\
 	\indent Nous n'avons pas de personne assigner au graphismes, chacun crée les graphismes ont il a besoin au fur et à mesure que nous avançons dans nos parties. Ce n'est pas forcément très efficace mais cela évite qu'un des membres se consacre entièrement au graphismes au détriment du code ce qui n'est pas le but de ce projet. Nous souhaitons que chaque membres puisse apprendre ce qu'il souhaite, c'est pour cela que nous sommes parfois peut-être trop nombreux sur une tache, mais cette méthode a l'avantage d'impliquer l'ensemble de l'équipe a 100\% dans le projet.\\*
 	\indent Nous avons tout de même défini une chatre dans nos graphismes pour ne pas tomber dans un trop gros décalage entre deux partie du jeu. Nous avons donc des modèles de départ pour partir sur les mêmes bases, puis chacun les modifie, tout en montrant aux membres de l'équipe pour qu'ils puissent donner leur avis,et voir si cela reste en accord avec le reste du projet
+	
+	
 \chapter{Et Après?}
 	\section{Map Editor 2.0}
 	L'éditeur de map serat intégrer au jeu afin que vous puissiez créer vos propres map et ainsi étendre la durée de vie de notre jeu (qui est déjà infini), vous aurez aussi mettre au défi vos amis en partageant vos créations, ce qui rendra le jeu quelque peu plus addictif.
+	
+	
 	\section{Réseaux Multijoueur}
+
+
 
 	\section{Nouveaux Personnage}
 	Nous savons que nos bel oiseau est très attachant, nous avons décider de rajouter de nouveau personnages, qui auront des caractéristiques physiques différentes, pour que vous puissiez choisir choisir un personnage qui correspondent le mieux a votre style de jeu.
+	
+	
 	\section{Graphismes}
 \newpage
 \textbf{{\huge Conclusion}}
