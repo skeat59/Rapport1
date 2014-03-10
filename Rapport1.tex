@@ -130,9 +130,9 @@
 
 \chapter{Avancement du Projet}
 	\section{Moteur Physique}
-		Dans un runner 2D, le moteur physique est en quelque sorte la base. L'oiseau doit être attiré par le sol, et doit être bloqué par les obstacles. Il était donc naturel que en fassions notre plus grand centre d'attention durant cette première partie de projet. Nous avons fait en sorte qu'il soit efficace et que l'on puisse le moduler aisément afin que l'on puisse s'amuser à changer les propriétés physiques d'une map à l'autre. Par exemple, la gravité est appliquée au personnage selon une variable coefficient qui peut être modifiée en fonction du niveau de difficulté. Le vol  de l'oiseau peut donc être contrôlé, tout comme ses battements d'ailes qui le font avancer en même temps qu'il s'élève dans les airs. \\\\
+		Dans un runner 2D, le moteur physique est en quelque sorte la base. L'oiseau doit être attiré par le sol, et doit être bloqué par les obstacles. Il était donc naturel que en fassions notre plus grand centre d'attention durant cette première partie de projet. Nous avons fait en sorte qu'il soit efficace et que l'on puisse le moduler aisément afin de pouvoir s'amuser à changer les propriétés physiques d'une map à l'autre. Par exemple, la gravité est appliquée au personnage selon un coefficient variable qui peut être modifiée en fonction du niveau de difficulté. Le vol  de l'oiseau peut donc être contrôlé, tout comme ses battements d'ailes qui le font avancer en même temps qu'il s'élève dans les airs. \\\\
 		
-		\indent Étant donné que la carte de jeux à les mêmes dimensions que la fenêtre, la gestion de dépassement de map à été très simple à réaliser. Un simple test sur la position du personnage par rapport à la fenêtre nous permet donc de l'empêcher de voler plus haut que le bord supérieur, ou de tomber plus bas que le bord inférieur. \\
+		\indent Étant donné que la carte de jeux à les mêmes dimensions que la fenêtre, la gestion du dépassement de map à été très simple à réaliser. Un simple test sur la position du personnage par rapport à la fenêtre nous permet donc de l'empêcher de voler plus haut que le bord supérieur, ou de tomber plus bas que le bord inférieur. \\
 
 		
 		Exemple :
@@ -141,7 +141,7 @@
 		
 if(SpritePosition.Y <= ScreenHeight)
 {
-	// On peux bouger horizontalement l'oiseau
+	// On peux bouger verticalement l'oiseau
 }
 else
 {
@@ -152,7 +152,7 @@ else
 		
 				
 		\indent Du coté de la gestion des obstacles, nous les avons fais sous forme de rectangle qui contiennent les images des blocs. Nous avions dans un premier temps implémenté une collision basique, rectangulaire, qui fonctionnait avec ces rectangles. Cette collision marchait assez bien mais notre oiseaux est rond, et les images des obstacles ne sont pas forcément rectangulaire non plus, ce n'était donc pas la solution la plus optimale... \\
-		\indent Pour remédier à ce problème, l'idée nous est donc venue de passer par une collision par pixel, bien plus adaptée à l'utilisation que l'on en fait dans notre jeux. Le problème de cette collision, c'est qu'elle est très gourmande puisque même en étant optimisée au maximum, elle parcours beaucoup de pixel. Il a donc fallut assemblé les deux test, collision rectangulaire puis par pixel afin de ne pas tester une collision par pixel avec le rectangle d'un bloc si il ne touche pas le rectangle du personnage. car si il n'y a pas d'obstacle nous n'avons donc pas besoin de regarder si il y a une collision \'a g\'erer, de plus nous n'avons pas besoin de g\'erer la collision de facon optimal pour les bonbons, donc pas besoin de perdre du temps machine pour quelque chose qui ne nous sert pas, soyons logique. Pour resumer nous avons fait un mix des deux grandes sorte de collisions (on est des oufs, ou pas...)
+		\indent Pour remédier à ce problème, l'idée nous est donc venue de passer par une collision par pixel, bien plus adaptée à l'utilisation que l'on en fait dans notre jeux. Le problème de cette collision, c'est qu'elle est très gourmande puisque même en étant optimisée au maximum, elle parcourt beaucoup de pixel. Il a donc fallut assemblé les deux tests, collision rectangulaire puis par pixel afin de ne pas tester une collision par pixel avec le rectangle d'un bloc si il ne touche pas le rectangle du personnage. car si il n'y a pas d'obstacle nous n'avons donc pas besoin de regarder si il y a une collision \'a g\'erer, de plus nous n'avons pas besoin de g\'erer la collision de façon optimal pour les bonbons, donc pas besoin de perdre du temps machine pour quelque chose qui ne nous sert pas, soyons logique. Pour résumer nous avons fait un mix des deux grandes sortes de collisions (on est des oufs, ou pas...)
 	
 	
 	\vspace{10mm}
@@ -160,7 +160,7 @@ else
 	\section{Réseau}
 	Comme expliqué dans l'introduction, notre jeux permet, si l'on est connecté, d'envoyer le score à la base de données du site web.\\
 	
-	Pour gérer cet accès, nous avons préalablement implémenté la classe DBConnect.cs dans un projet annexe afin de pouvoir facilement tester les fonctions d'ajout de données, de suppression, de mise à jour, de test d'existence de valeur et de listage que nous préparions. Certaines fonctions ne nous sont pas utile dans l'état actuel du jeux, mais si l'on veux par la suite rajouter des options tel que s'inscrire depuis le jeux, afficher le classement ou encore changer de pseudo, elles seront déjà prête.\\
+	Pour gérer cet accès, nous avons préalablement implémenté la classe DBConnect.cs dans un projet annexe afin de pouvoir facilement tester les fonctions d'ajout de données, de suppressions, de mises à jour, de tests d'existences de valeur et de listages que nous préparions. Certaines fonctions ne nous sont pas utile dans l'état actuel du jeux, mais si l'on veut par la suite rajouter des options tel que s'inscrire depuis le jeux, afficher le classement ou encore changer de pseudo, elles seront déjà prête.\\
 	
 	La gestion de base de donnée utilise une Dll nommée "Mysql.Data" car il n'est, par défaut, pas possible de communiquer entre le jeux en C\# et la base de données en MySql. 
 	Avec quelques tutos en ligne et les connaissances de T4ze dans le domaine du Web, la compréhension et l'implémentation des fonctions fut assez simple et fonctionnel rapidemment.
@@ -170,7 +170,7 @@ else
 
 
 	\section{Son}
-	Nous savons que tout bon jeu est accompagné d'une vraie bibliothèque de sons, c'est pourquoi Mattou s'est vraiment concentré sur cette aspect du projet il a fallu tout d'abord qu'elle recherche les musique et les effets sonore adéquat pour que l'ambiance lorsque vous êtes dans le jeu soit optimale. Puis nous voulions que ce soit trés structuré dans le projet pour ne pas avoir des sons en vrac dans nos Contents, notre solution: utiliser Xact. 
+	Nous savons que tout bon jeu est accompagné d'une vraie bibliothèque de sons, c'est pourquoi Mattou s'est vraiment concentré sur cette aspect du projet, il a fallu tout d'abord qu'elle recherche les musiques et les effets sonores adéquats pour que l'ambiance lorsque vous êtes dans le jeu soit optimale. Puis nous voulions que ce soit très structuré dans le projet pour ne pas avoir des sons en vrac dans nos Contents, notre solution: utiliser Xact. 
 	
 	
 	\vspace{10mm}
@@ -179,7 +179,7 @@ else
 	\section{\'Etat de jeux}
 	Pour naviguer dans le jeux nous avons mis différents "États". \\
 	
-	Dans les premiers jours de code, nous avons rencontré quelques difficultés dans l'agencement de ces états puisque tout était placé dans le Game1 et ce n'était donc vraiment pas simple de s'y retrouver et de modifier correctement les updates nécessaire et des bons affichage. En ecoutant des étudiants de niveau supérieur, la solution la plus claire était de faire une pile d'état qui n'afficherais et ne mettrais a jour que le haut de la pile.
+	Dans les premiers jours de code, nous avons rencontré quelques difficultés dans l'agencement de ces états puisque tout était placé dans le Game1 et ce n'était donc vraiment pas simple de s'y retrouver et de modifier correctement les updates nécessaire et des bons affichage. En écoutant des étudiants de niveau supérieur, la solution la plus claire était de faire une pile d'état qui n'afficherais et ne mettrais à jour que le haut de la pile.
 	
 	Après des recherches, quelques test et des ratés face à cette utilisation de pile, la combinaison d'une énumération d'états et d'un switch c'est avéré correspondre aussi bien à nos attentes. Cela nous a permis de simplifier au maximum le code dans le Game1 et de créer des Classes pour chaque états.\\
 			
@@ -221,10 +221,10 @@ else
 	
 	
 	\section{\'Editeur de Map}
-	Nos Maps sont basé sur des fichiers textes (en .txt) que nous renommons en .lvl pour level (sans blagues). Le fichier est composé de: sur la première ligne le nombre d'élement pouvant se trouvé sur une même colonne, sur la deuxième ligne le nombre d'élément sur une ligne, puis sur le reste c'est la définition de la map % photo du .lvl % 
+	Nos Maps sont basées sur des fichiers textes (en .txt) que nous renommons en .lvl pour level (sans blagues). Le fichier est composé de: sur la première ligne le nombre d'élements pouvant se trouvé sur une même colonne, sur la deuxième ligne le nombre d'éléments sur une ligne, puis sur le reste c'est la définition de la map % photo du .lvl % 
 	\\
-	les "0" correspondent à un espace vide, les 4 sont eux des obstacles et 3 sont les fameux bonbons permettant de regagner de l'énergie.
-	\indent Il est bien entendu que nous n'allons pas écrire toutes nos maps à la main cela serait trop long et très très lassant. Donc nous avons créé un éditeur de maps qui écrira dans le fichier .lvl pour nous avons juste a cliquer un peu partout pour avoir une map (SUPER) %photo éditeur 
+	On représente la carte avec des chiffre différents, lorsqu'il y a un "0" par exemple, va représenter une case de vide à un emplacement determiner selon la ligne à dans laquelle il se trouve ainsi que la collonne, il en va de même pour les "4" qui sont eux des obstacles, tout comme les 2, tandis que les 3 sont les fameux bonbons permettant de regagner de l'énergie.
+	\indent Il est bien entendu que nous n'allons pas écrire toutes nos maps à la main cela serait trop long et très vite lassant. Donc nous avons créé un éditeur de maps qui écrira dans le fichier .lvl de façon a ce que nous ayons juste à cliquer un peu partout pour avoir une map (SUPER) %photo éditeur 
 	 
 	 \vspace{10mm}
 	 
@@ -235,7 +235,7 @@ else
 	http://www.CandyBird.eu/
 	\end{Verbatim}
 	
-	Dans un esprit pédagogue, nous avons choisis de réaliser notre site à la main plutôt que d'utiliser un CMS (Wordpress ou autre). T4ze avait déjà, auparavant, monter différents site web et il a ainsi pu s'occuper de cette partie sans trop de problèmes. Le site regroupe actuellement une présentation rapide de notre projet accompagnée d'images qui illustrent les différentes parties de notre jeu. Chaque membres du groupe a sa page personnelle, avec une petite présentation ainsi qu'une photo (la classe). Pour la partie pratique, vous pouvez télécharger nos différents rapports, en LaTeX ou en PDF, ainsi que la version du code source présentée lors des différentes soutenances directement depuis le site. De plus, une page est réservée à l'inscription (avec enregistrement de carte bleu tout ça tout ça... histoire de rembourser tout nos frais de l'année). Cette partie n'est pas obligatoire mais recommandée puisque qu'il faut se connecter au jeux pour accéder au mode multijoueur et avoir l'envoie de score en ligne en fin de partie.\\
+	Dans un esprit pédagogue, nous avons choisis de réaliser notre site à la main plutôt que d'utiliser un CMS (Wordpress ou autre). T4ze avait déjà, auparavant, monté différents site web et il a ainsi pu s'occuper de cette partie sans trop de problèmes. Le site regroupe actuellement une présentation rapide de notre projet accompagnée d'images qui illustrent les différentes parties de notre jeu. Chaque membres du groupe a sa page personnelle, avec une petite présentation ainsi qu'une photo (la classe). Pour la partie pratique, vous pouvez télécharger nos différents rapports, en LaTeX ou en PDF, ainsi que la version du code source présentée lors des différentes soutenances directement depuis le site. De plus, une page est réservée à l'inscription (avec enregistrement de carte bleu tout ça tout ça... histoire de rembourser tout nos frais de l'année). Cette partie n'est pas obligatoire mais recommandée puisque qu'il faut se connecter au jeux pour accéder au mode multijoueur et avoir l'envoie de score en ligne en fin de partie.\\
 	\vspace{4mm}
 	\begin{center}
 	\includegraphics[scale=0.5]{images/site.png}
@@ -248,14 +248,14 @@ else
 	\vspace{10mm}
 	
 	\section{Graphique}
-	La partie a était compliqué suite au départ d'Adrien qui n'était pas prévue, il était le plus expérimenté d'entre nous avec les logiciels de graphismes (Photoshop en l'occurrence). Il fallu très vite apprendre les bases de ce logiciel afin de pouvoir réutiliser les travaux déjà produit par Adrien. Nous avons donc du faire face a ce petit problème car un jeu avec des graphismes mal fini n'ai pas très attirant et le savons bien.\\
-	\indent Nous n'avons pas de personne assigner au graphismes, chacun crée les graphismes ont il a besoin au fur et à mesure que nous avançons dans nos parties. Ce n'est pas forcément très efficace mais cela évite qu'un des membres se consacre entièrement au graphismes au détriment du code ce qui n'est pas le but de ce projet. Nous souhaitons que chaque membres puisse apprendre ce qu'il souhaite, c'est pour cela que nous sommes parfois peut-être trop nombreux sur une tache, mais cette méthode a l'avantage d'impliquer l'ensemble de l'équipe a 100\% dans le projet.\\*
-	\indent Nous avons tout de même défini une chatre dans nos graphismes pour ne pas tomber dans un trop gros décalage entre deux partie du jeu. Nous avons donc des modèles de départ pour partir sur les mêmes bases, puis chacun les modifie, tout en montrant aux membres de l'équipe pour qu'ils puissent donner leur avis,et voir si cela reste en accord avec le reste du projet
+	La partie a été compliqué suite au départ d'Adrien qui n'était pas prévu, il était le plus expérimenté d'entre nous avec les logiciels de graphismes (Photoshop en l'occurrence). Il fallu très vite apprendre les bases de ce logiciel afin de pouvoir réutiliser les travaux déjà produit par Adrien. Nous avons donc du faire face a ce petit problème car un jeu avec des graphismes mal finis n'ai pas très attirant et nous le savons bien.\\
+	\indent Nous n'avons pas de personne assigné au graphismes, chacun crée les graphismes dont il a besoin au fur et à mesure que nous avançons dans nos parties. Ce n'est pas forcément très efficace mais cela évite qu'un des membres se consacre entièrement au graphismes au détriment du code ce qui n'est pas le but de ce projet. Nous souhaitons que chaque membres puisse apprendre ce qu'il souhaite, c'est pour cela que nous sommes parfois peut-être trop nombreux sur une tache, mais cette méthode a l'avantage d'impliquer l'ensemble de l'équipe a 100\% dans le projet.\\*
+	\indent Nous avons tout de même défini une charte dans nos graphismes pour ne pas tomber dans un trop gros décalage entre deux partie du jeu. Nous avons donc des modèles de départ pour partir sur les mêmes bases, puis chacun les modifie, tout en montrant aux membres de l'équipe pour qu'ils puissent donner leur avis,et voir si cela reste en accord avec le reste du projet
 	
 	
 \chapter{Et Après?}
 	\section{Map Editor 2.0}
-	L'éditeur de map serat intégrer au jeu afin que vous puissiez créer vos propres map et ainsi étendre la durée de vie de notre jeu (qui est déjà infini), vous aurez aussi mettre au défi vos amis en partageant vos créations, ce qui rendra le jeu quelque peu plus addictif.
+	L'éditeur de map sera intégré au jeu afin que vous puissiez créer vos propres maps et ainsi étendre la durée de vie de notre jeu (qui est déjà infini), vous aurez aussi la possibilité de mettre au défi vos amis en partageant vos créations, ce qui rendra le jeu quelque peu plus addictif.
 	
 	
 	\section{Réseaux Multijoueur}
@@ -263,7 +263,7 @@ else
 
 
 	\section{Nouveaux Personnage}
-	Nous savons que nos bel oiseau est très attachant, nous avons décider de rajouter de nouveau personnages, qui auront des caractéristiques physiques différentes, pour que vous puissiez choisir choisir un personnage qui correspondent le mieux a votre style de jeu.
+	Nous savons que nos bel oiseau est très attachant, mais nous avons décidé de rajouter de nouveaux personnages, qui auront des caractéristiques physiques différentes, pour que vous puissiez choisir un personnage qui correspondent le mieux à votre style de jeu.
 	
 	
 	\section{Graphismes}
