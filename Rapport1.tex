@@ -179,17 +179,17 @@ Voici donc la présentation et le détail de cette première version accompagné
 		
 if(SpritePosition.Y <= ScreenHeight)
 {
-	// On peux bouger verticalement l'oiseau
+	// On peut bouger verticalement l'oiseau
 }
 else
 {
-	// On laisse l'oiseau a sa position
+	// On laisse l'oiseau à sa position
 }
 		\end{mylisting}
 	\vspace{10mm}
 		
 				
-		\indent Du coté de la gestion des obstacles, nous les avons faits sous forme de rectangles qui contiennent les images des blocs. Nous avions dans un premier temps implémenté une collision basique, rectangulaire, qui fonctionnait avec ces rectangles. Cette collision fonctionnait assez bien mais notre oiseau est rond, et les images des obstacles ne sont pas forcément rectangulaire non plus, ce n'était donc pas la solution la plus optimale... \\
+		\indent Du côté de la gestion des obstacles, nous les avons faits sous forme de rectangles qui contiennent les images des blocs. Nous avions dans un premier temps implémenté une collision basique, rectangulaire, qui fonctionnait avec ces rectangles. Cette collision fonctionnait assez bien mais notre oiseau est rond, et les images des obstacles ne sont pas forcément rectangulaire non plus, ce n'était donc pas la solution la plus optimale... \\
 		\indent Pour remédier à ce problème, l'idée nous est donc venue de passer par une collision par pixel, bien plus adaptée à l'utilisation que l'on en fait dans notre jeu. Le problème de cette collision, c'est qu'elle est très gourmande puisque même en étant optimisée au maximum, elle parcourt beaucoup de pixel. Il a donc fallut assembler les deux tests, collision rectangulaire puis par pixel afin de ne pas tester une collision par pixel avec le rectangle d'un bloc si il ne touche pas le rectangle du personnage. car si il n'y a pas d'obstacle nous n'avons donc pas besoin de regarder si il y a une collision à gérer, de plus nous n'avons pas besoin de gérer la collision de façon optimal pour les bonbons, donc pas besoin de perdre du temps machine pour quelque chose qui ne nous sert pas, soyons logique. Pour résumer nous avons fait un mix des deux grandes sortes de collisions (on est des oufs, ou pas...)
 		
 		\newpage
@@ -201,6 +201,18 @@ else
 	
 	
 	\indent Une fois les sons trouvés et approuvés, il a fallu les implémenter. Ca n'a pas été une partie de plaisir car Mattou ne connaissait pas Xact et ses méthodes. De plus, une fois le son implémenté, nous nous sommes rendus compte que les pistes étaient trop importantes et mettaient du temps à se lancer dans le jeu. Le rendu n'étant pas satisfaisant, il a fallu compresser chaque piste dans l'API Xact. Et voilà, nous avons du son dans le jeu ! Peut être que certains morceaux seront remplacés ou modifiés afin qu'ils s'accordent mieux entre eux, mais nous nous occuperons de cette partie lorsque le projet aura évolué et que nous aurons plus de maps. Des sons vont  également arriver plus tard, pour le déroulement de la partie (par exemple lorsque l'oiseau attrape un bonbon, ou que la barre de vie est presque vide...).
+
+		\vspace{8mm}
+		
+		\begin{center}
+			\includegraphics[scale = 0.1]{images/compress-avant.PNG}
+		\end{center}
+
+		\vspace{4mm}
+		
+		\begin{center}
+			\includegraphics[scale = 0.1]{images/compress-apres.PNG}
+		\end{center}
 		
 		
 		\newpage
