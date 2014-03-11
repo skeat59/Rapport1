@@ -196,17 +196,23 @@ else
 	
 	\section{Son}
 		Nous savons que tout bon jeu est accompagné d'une vraie bibliothèque de sons, c'est pourquoi Mattou s'est vraiment concentrée sur cet aspect du projet, il a fallu tout d'abord qu'elle recherche les musiques et les effets sonores adéquats pour que l'ambiance lorsque vous êtes dans le jeu soit optimale. Puis nous voulions que ce soit très structuré dans le projet pour ne pas avoir des sons en vrac dans nos Contents, notre solution: utiliser Xact. \\
+		
 	\indent Nous nous sommes très vite mis d'accord sur ce que nous recherchions comme ambiance, et Mattou s'est chargée à-partir de là  de trouver les pistes. Elle s'est donc inspirée d'autres Runner 2D pour les pistes jouées pendant la partie. Il n'y a pour l'instant que peu de maps, donc une piste par maps pour chaque maps du jeu. D'autres viendront par la suite, accompagnées de nouvelles pistes respectives. Les autres états de jeu ont également leur propre musique. \\
+	
+	
 	\indent Une fois les sons trouvés et approuvés, il a fallu les implémenter. Ca n'a pas été une partie de plaisir car Mattou ne connaissait pas Xact et ses méthodes. De plus, une fois le son implémenté, nous nous sommes rendus compte que les pistes étaient trop importantes et mettaient du temps à se lancer dans le jeu. Le rendu n'étant pas satisfaisant, il a fallu compresser chaque piste dans l'API Xact. Et voilà, nous avons du son dans le jeu ! Peut être que certains morceaux seront remplacés ou modifiés afin qu'ils s'accordent mieux entre eux, mais nous nous occuperons de cette partie lorsque le projet aura évolué et que nous aurons plus de maps. Des sons vont  également arriver plus tard, pour le déroulement de la partie (par exemple lorsque l'oiseau attrape un bonbon, ou que la barre de vie est presque vide...).
 		
 		
-		\vspace{10mm}
+		\newpage
 		
 		
 		\section{\'Etat de jeux}
+		
+		\vspace{5mm}
+		
 		Pour naviguer dans le jeu nous avons mis différents "États". Ces "États" sont les pages de menus, de selection du mode, les pages de jeux, etc.. 
 		
-		\vspace{4mm}
+		\vspace{8mm}
 		
 		\begin{center}
 			\includegraphics[scale = 0.1]{images/Menus.png}
@@ -221,6 +227,10 @@ else
 		
 		Après des recherches, quelques tests et des ratés face à cette utilisation de pile, la combinaison d'une énumération d'états et d'un switch s'est avérée correspondre aussi bien à nos attentes. Cela nous a permis de simplifier au maximum le code dans le Game1 et de créer des Classes pour chaque états.\\
 				
+		\newpage	
+			\begin{center}
+						\includegraphics[scale = 0.3]{images/blanc.png}
+					\end{center}
 		\noindent Morceau de code extrait de l'update() actuel du Game1 :
 		
 		
@@ -365,7 +375,11 @@ else
 		
 	\newpage
 	
-	Toute cette partie nous sert à ceci : Le classement inter-joueur
+	\begin{center}
+			\includegraphics[scale = 0.3]{images/blanc.png}
+		\end{center}
+	
+	\noindent Toute cette partie nous sert à ceci : Le classement inter-joueur
 	
 	\begin{center}
 		\includegraphics[scale = 0.6]{images/classement.png}
@@ -381,7 +395,9 @@ else
 	 
 	\section{Site Web}
 	
-	\vspace{6mm}
+	\begin{center}
+				\includegraphics[scale = 0.3]{images/blanc.png}
+			\end{center}
 	
 	\noindent URL du site web : 
 	\begin{Verbatim}
