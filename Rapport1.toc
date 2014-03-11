@@ -5,8 +5,8 @@
 \contentsline {subsection}{\numberline {1.1.1}Mode Histoire}{3}
 \contentsline {subsection}{\numberline {1.1.2}Mode infini}{3}
 \contentsline {section}{\numberline {1.2}Moteur Physique}{4}
-\contentsline {section}{\numberline {1.3}Son}{6}
-\contentsline {section}{\numberline {1.4}\'Etat de jeux}{6}
+\contentsline {section}{\numberline {1.3}Son}{5}
+\contentsline {section}{\numberline {1.4}\'Etat de jeux}{5}
 \contentsline {section}{\numberline {1.5}\'Editeur de Map}{8}
 \contentsline {section}{\numberline {1.6}R\IeC {\'e}seau}{11}
 \contentsline {section}{\numberline {1.7}Site Web}{13}

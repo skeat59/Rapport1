@@ -78,7 +78,7 @@
 \title{
 	\includegraphics[scale=0.43]{images/Logojeu.png}
 	 \\\vspace{20mm}
-	\textbf{\Huge \itshape Cahier des charges }
+	\textbf{\Huge \itshape Rapport de premiere soutenance  }
 	}
 
 
@@ -138,9 +138,12 @@ Voici donc la présentation et le détail de cette première version accompagné
 
 \chapter{Avancement du Projet}
 	\section{Différents modes}
-		\subsection{Mode Histoire}
-		
-	
+	Dans Candy bird il existe deux mode de jeu, un story mode et infini mode. L'un permet de suivre une succession de map que nous avons cree tant dis que l'infini mode vous permet de voir qui est le plus fort entre vous et vos amis.
+		\subsection{Mode Histoire}	
+		Nous avons cree differente map qui se joue les unes apres les autres, elles sont de plus en plus dure vous  offrant de plus en plus de challenge au fur et a mesure que vous avancer dans le jeu. Ce mode de jeu vous permet de jouer lorsque vous n'avez pas de connexion internet ou si vous n'avez pas encore cree votre compte sur notre site web. C'est le vrai mode solo de notre jeu car les autre forme de Candy Bird sont plus ou moins des modes multijoueurs. Le principe est simple, lorsque vous commencez une partie, vous surmontez les differents obstacle se trouvant sur votre chemin, en pensant a regulierement manger des bonbons pour avoir suffisament d'energie pour continuer de voler. A la fin vous verrez une ligne d'arriver, mais rien a voir avec les damiers que l'on voit d'habitude, Nous avons mis une ligne de petit bonbons allant de haut en bas de l'ecran.\\
+		\\
+		\indent
+		Il n'y aura pas de grandes revolution d'ici la prochaine soutenance, mis a part que toutes les maps ne seront pas accessible des le debut du jeu. C'est a dire que si vous voulez acceder a la map 43 il faudra finir la map 42, cela parait logique. mis a part ca nous ne voyons la necessite de faire de plus grand changement car ce mode de jeu est deja bien complet et les autres mode de jeu vous permettront de vous amusez de facon plus approfondi dans Candy Bird
 		\vspace{10mm}
 	
 		\subsection{Mode infini}
@@ -151,8 +154,6 @@ Voici donc la présentation et le détail de cette première version accompagné
 		
 			
 		Pour ce mode, il ne fallait pas un tableau de largeur infini (ce n'est d'ailleurs pas possible), nous avons donc créé un tableau de blocs, un peu plus grand que la largeur de la fenêtre. Le procédé est simple, à chaque fois qu'une colonne de bloc sors de l'écran on modifie la position de ce bloc pour le faire apparaitre par la droite lors du scrolling. Bien évidemment on change la valeur du bloc en suivant nos pourcentage sinon notre map ne serait composé que d'une même partie répétitive.
-
-	\newpage
 
 	\section{Moteur Physique}
 		Dans un runner 2D, le moteur physique est en quelque sorte la base. L'oiseau doit être attiré par le sol, et doit être bloqué par les obstacles. Il était donc naturel que nous en fassions notre plus grand centre d'attention durant cette première partie de projet. Nous avons fait en sorte qu'il soit efficace et que l'on puisse le moduler aisément afin de pouvoir s'amuser à changer les propriétés physiques d'une map à l'autre. Par exemple, la gravité est appliquée au personnage selon un coefficient variable qui peut être modifié en fonction du niveau de difficulté. Le vol  de l'oiseau peut donc être contrôlé, tout comme ses battements d'ailes qui le font avancer en même temps qu'il s'élève dans les airs. \\\\
@@ -178,9 +179,6 @@ else
 				
 		\indent Du coté de la gestion des obstacles, nous les avons faits sous forme de rectangles qui contiennent les images des blocs. Nous avions dans un premier temps implémenté une collision basique, rectangulaire, qui fonctionnait avec ces rectangles. Cette collision fonctionnait assez bien mais notre oiseau est rond, et les images des obstacles ne sont pas forcément rectangulaire non plus, ce n'était donc pas la solution la plus optimale... \\
 		\indent Pour remédier à ce problème, l'idée nous est donc venue de passer par une collision par pixel, bien plus adaptée à l'utilisation que l'on en fait dans notre jeu. Le problème de cette collision, c'est qu'elle est très gourmande puisque même en étant optimisée au maximum, elle parcourt beaucoup de pixel. Il a donc fallut assembler les deux tests, collision rectangulaire puis par pixel afin de ne pas tester une collision par pixel avec le rectangle d'un bloc si il ne touche pas le rectangle du personnage. car si il n'y a pas d'obstacle nous n'avons donc pas besoin de regarder si il y a une collision \'a g\'erer, de plus nous n'avons pas besoin de g\'erer la collision de façon optimal pour les bonbons, donc pas besoin de perdre du temps machine pour quelque chose qui ne nous sert pas, soyons logique. Pour résumer nous avons fait un mix des deux grandes sortes de collisions (on est des oufs, ou pas...)
-	
-	\newpage
-	
 	
 	\section{Son}
 		Nous savons que tout bon jeu est accompagné d'une vraie bibliothèque de sons, c'est pourquoi Mattou s'est vraiment concentrée sur cet aspect du projet, il a fallu tout d'abord qu'elle recherche les musiques et les effets sonores adéquats pour que l'ambiance lorsque vous êtes dans le jeu soit optimale. Puis nous voulions que ce soit très structuré dans le projet pour ne pas avoir des sons en vrac dans nos Contents, notre solution: utiliser Xact. 
