@@ -2,14 +2,16 @@
 \contentsline {chapter}{Introduction}{2}
 \contentsline {chapter}{\numberline {1}Avancement du Projet}{3}
 \contentsline {section}{\numberline {1.1}Moteur Physique}{3}
-\contentsline {section}{\numberline {1.2}R\IeC {\'e}seau}{4}
-\contentsline {section}{\numberline {1.3}Son}{4}
-\contentsline {section}{\numberline {1.4}\'Etat de jeux}{5}
-\contentsline {section}{\numberline {1.5}\'Editeur de Map}{7}
-\contentsline {section}{\numberline {1.6}Site Web}{8}
-\contentsline {section}{\numberline {1.7}Graphique}{9}
-\contentsline {chapter}{\numberline {2}Et Apr\IeC {\`e}s?}{10}
-\contentsline {section}{\numberline {2.1}Map Editor 2.0}{10}
-\contentsline {section}{\numberline {2.2}R\IeC {\'e}seaux Multijoueur}{10}
-\contentsline {section}{\numberline {2.3}Nouveaux Personnage}{10}
-\contentsline {section}{\numberline {2.4}Graphismes}{10}
+\contentsline {section}{\numberline {1.2}Son}{5}
+\contentsline {section}{\numberline {1.3}\'Etat de jeux}{5}
+\contentsline {section}{\numberline {1.4}\'Editeur de Map}{7}
+\contentsline {section}{\numberline {1.5}R\IeC {\'e}seau}{10}
+\contentsline {section}{\numberline {1.6}Site Web}{12}
+\contentsline {section}{\numberline {1.7}Graphique}{13}
+\contentsline {subsection}{\numberline {1.7.1}Sprite}{13}
+\contentsline {chapter}{\numberline {2}Et Apr\IeC {\`e}s?}{14}
+\contentsline {section}{\numberline {2.1}Map Editor 2.0}{14}
+\contentsline {section}{\numberline {2.2}R\IeC {\'e}seaux Multijoueur}{14}
+\contentsline {section}{\numberline {2.3}Nouveaux Personnage}{14}
+\contentsline {section}{\numberline {2.4}Graphismes}{14}
+\contentsline {chapter}{Conclusion}{15}
