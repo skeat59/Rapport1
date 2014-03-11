@@ -1,14 +1,17 @@
 \select@language {french}
 \contentsline {chapter}{Introduction}{2}
 \contentsline {chapter}{\numberline {1}Avancement du Projet}{3}
-\contentsline {section}{\numberline {1.1}Moteur Physique}{3}
-\contentsline {section}{\numberline {1.2}Son}{5}
-\contentsline {section}{\numberline {1.3}\'Etat de jeux}{5}
-\contentsline {section}{\numberline {1.4}\'Editeur de Map}{7}
-\contentsline {section}{\numberline {1.5}R\IeC {\'e}seau}{10}
-\contentsline {section}{\numberline {1.6}Site Web}{12}
-\contentsline {section}{\numberline {1.7}Graphique}{13}
-\contentsline {subsection}{\numberline {1.7.1}Sprite}{13}
+\contentsline {section}{\numberline {1.1}Diff\IeC {\'e}rents modes}{3}
+\contentsline {subsection}{\numberline {1.1.1}Mode Histoire}{3}
+\contentsline {subsection}{\numberline {1.1.2}Mode infini}{3}
+\contentsline {section}{\numberline {1.2}Moteur Physique}{3}
+\contentsline {section}{\numberline {1.3}Son}{5}
+\contentsline {section}{\numberline {1.4}\'Etat de jeux}{5}
+\contentsline {section}{\numberline {1.5}\'Editeur de Map}{7}
+\contentsline {section}{\numberline {1.6}R\IeC {\'e}seau}{10}
+\contentsline {section}{\numberline {1.7}Site Web}{12}
+\contentsline {section}{\numberline {1.8}Graphique}{13}
+\contentsline {subsection}{\numberline {1.8.1}Sprite}{13}
 \contentsline {chapter}{\numberline {2}Et Apr\IeC {\`e}s?}{14}
 \contentsline {section}{\numberline {2.1}Map Editor 2.0}{14}
 \contentsline {section}{\numberline {2.2}R\IeC {\'e}seaux Multijoueur}{14}
