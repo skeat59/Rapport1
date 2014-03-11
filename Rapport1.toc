@@ -7,16 +7,16 @@
 \contentsline {section}{\numberline {1.2}Moteur Physique}{4}
 \contentsline {section}{\numberline {1.3}Son}{6}
 \contentsline {section}{\numberline {1.4}\'Etat de jeux}{6}
-\contentsline {section}{\numberline {1.5}\'Editeur de Map}{8}
-\contentsline {section}{\numberline {1.6}R\IeC {\'e}seau}{11}
-\contentsline {section}{\numberline {1.7}Site Web}{13}
-\contentsline {section}{\numberline {1.8}Graphique}{14}
-\contentsline {subsection}{\numberline {1.8.1}Sprite}{14}
-\contentsline {section}{\numberline {1.9}R\IeC {\'e}partitions des T\IeC {\^a}ches}{15}
-\contentsline {section}{\numberline {1.10}Les chiffres}{15}
-\contentsline {chapter}{\numberline {2}Et Apr\IeC {\`e}s?}{16}
-\contentsline {section}{\numberline {2.1}Map Editor 2.0}{16}
-\contentsline {section}{\numberline {2.2}R\IeC {\'e}seaux Multijoueur}{16}
-\contentsline {section}{\numberline {2.3}Nouveaux Personnage}{16}
-\contentsline {section}{\numberline {2.4}Graphismes}{16}
-\contentsline {chapter}{Conclusion}{17}
+\contentsline {section}{\numberline {1.5}\'Editeur de Map}{9}
+\contentsline {section}{\numberline {1.6}R\IeC {\'e}seau}{12}
+\contentsline {section}{\numberline {1.7}Site Web}{14}
+\contentsline {section}{\numberline {1.8}Graphique}{15}
+\contentsline {subsection}{\numberline {1.8.1}Sprite}{15}
+\contentsline {section}{\numberline {1.9}R\IeC {\'e}partitions des T\IeC {\^a}ches}{16}
+\contentsline {section}{\numberline {1.10}Les chiffres}{16}
+\contentsline {chapter}{\numberline {2}Et Apr\IeC {\`e}s?}{17}
+\contentsline {section}{\numberline {2.1}Map Editor 2.0}{17}
+\contentsline {section}{\numberline {2.2}R\IeC {\'e}seaux Multijoueur}{17}
+\contentsline {section}{\numberline {2.3}Nouveaux Personnage}{17}
+\contentsline {section}{\numberline {2.4}Graphismes}{18}
+\contentsline {chapter}{Conclusion}{19}
