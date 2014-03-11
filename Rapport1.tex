@@ -139,28 +139,40 @@ Voici donc la présentation et le détail de cette première version accompagné
 \chapter{Avancement du Projet}
 	\section{Différents modes}
 	Dans Candy bird il existe deux mode de jeu, un story mode et infini mode. L'un permet de suivre une succession de map que nous avons cree tant dis que l'infini mode vous permet de voir qui est le plus fort entre vous et vos amis.
+	
+	\vspace{10mm}
+	
 		\subsection{Mode Histoire}	
-		Nous avons cree differente map qui se joue les unes apres les autres, elles sont de plus en plus dure vous  offrant de plus en plus de challenge au fur et a mesure que vous avancer dans le jeu. Ce mode de jeu vous permet de jouer lorsque vous n'avez pas de connexion internet ou si vous n'avez pas encore cree votre compte sur notre site web. C'est le vrai mode solo de notre jeu car les autre forme de Candy Bird sont plus ou moins des modes multijoueurs. Le principe est simple, lorsque vous commencez une partie, vous surmontez les differents obstacle se trouvant sur votre chemin, en pensant a regulierement manger des bonbons pour avoir suffisament d'energie pour continuer de voler. A la fin vous verrez une ligne d'arriver, mais rien a voir avec les damiers que l'on voit d'habitude, Nous avons mis une ligne de petit bonbons allant de haut en bas de l'ecran.\\
+		Nous avons créé différente map qui se joue les unes après les autres, elles sont de plus en plus dure vous  offrant de plus en plus de challenge au fur et a mesure que vous avancer dans le jeu. Ce mode de jeu vous permet de jouer lorsque vous n'avez pas de connexion internet ou si vous n'avez pas encore cree votre compte sur notre site web. C'est le vrai mode solo de notre jeu car les autre forme de CandyBird sont plus ou moins des modes multijoueurs. Le principe est simple, lorsque vous commencez une partie, vous surmontez les différents obstacle se trouvant sur votre chemin, en pensant a régulièrement manger des bonbons pour avoir suffisamment d'énergie pour continuer de voler. A la fin vous verrez une ligne d'arriver, mais rien a voir avec les damiers que l'on voit d'habitude, Nous avons mis une ligne de petit bonbons allant de haut en bas de l'écran.\\
 		\\
 		\indent
-		Il n'y aura pas de grandes revolution d'ici la prochaine soutenance, mis a part que toutes les maps ne seront pas accessible des le debut du jeu. C'est a dire que si vous voulez acceder a la map 43 il faudra finir la map 42, cela parait logique. mis a part ca nous ne voyons la necessite de faire de plus grand changement car ce mode de jeu est deja bien complet et les autres mode de jeu vous permettront de vous amusez de facon plus approfondi dans Candy Bird
+		Il n'y aura pas de grandes révolution d'ici la prochaine soutenance, mis a part que toutes les maps ne seront pas accessible des le début du jeu. C'est a dire que si vous voulez accéder a la map 43 il faudra finir la map 42, cela parait logique. mis a part ca nous ne voyons la nécessite de faire de plus grand changement car ce mode de jeu est déjà bien complet et les autres mode de jeu vous permettront de vous amusez de façon plus approfondi dans CandyBird.
+		
 		\vspace{10mm}
+		
 	
-		\subsection{Mode infini}
-		Ce qui caractérise le mode infini c'est qu'il n'as pas de fin. La gestion des blocs se fait de façon aléatoire mais suit un pourcentage fixé :\\
-		\indent - 3\% de bonbons\\
-		\indent - 13\% d'obstacles\\
-		\indent - le reste de vide\\
+		\subsection{Mode Infini}
+		Ce qui caractérise le mode infini c'est qu'il n'as pas de fin (d'ou son nom). Les maps suivent le même modèle que dans l'autre mode sauf qu'au lieu de charger le contenu d'un fichier, la gestion des blocs se fait de façon aléatoire. Pour ne pas se retrouver avec un parcours infranchissable, la création suit un pourcentage fixé :\\
+		
+		\indent \indent - 13\% d'obstacles, pour avec différentes possibilitées de passage.\\
+		\indent \indent - 3\% de bonbons, car il ne faut pas que le joueur puisse tout le temps avoir de \indent \indent l'énergie.\\
+		\indent \indent - le reste du pourcentage deviens un bloc vide/invisible dans lequel l'oiseau pourra\\
+		\indent \indent passer\\
 		
 			
-		Pour ce mode, il ne fallait pas un tableau de largeur infini (ce n'est d'ailleurs pas possible), nous avons donc créé un tableau de blocs, un peu plus grand que la largeur de la fenêtre. Le procédé est simple, à chaque fois qu'une colonne de bloc sors de l'écran on modifie la position de ce bloc pour le faire apparaitre par la droite lors du scrolling. Bien évidemment on change la valeur du bloc en suivant nos pourcentage sinon notre map ne serait composé que d'une même partie répétitive.
+		Pour ce mode, il ne fallait pas un tableau de largeur infini (ce n'est d'ailleurs pas possible), nous avons donc créé un tableau de blocs, un peu plus grand que la largeur de la fenêtre puisque nous n'avons pas besoin de plus. Le procédé est simple, à chaque fois qu'une colonne franchis l'écran par la gauche, c'est que le bloc à disparut. On modifie donc sa position pour le faire réapparaitre par la droite lors du scrolling. Bien évidemment on change aussi la valeur du bloc en suivant nos pourcentages sinon notre map ne serait composé que d'une même partie qui se répète.
+
+
+	\vspace{15mm}
+
 
 	\section{Moteur Physique}
 		Dans un runner 2D, le moteur physique est en quelque sorte la base. L'oiseau doit être attiré par le sol, et doit être bloqué par les obstacles. Il était donc naturel que nous en fassions notre plus grand centre d'attention durant cette première partie de projet. Nous avons fait en sorte qu'il soit efficace et que l'on puisse le moduler aisément afin de pouvoir s'amuser à changer les propriétés physiques d'une map à l'autre. Par exemple, la gravité est appliquée au personnage selon un coefficient variable qui peut être modifié en fonction du niveau de difficulté. Le vol  de l'oiseau peut donc être contrôlé, tout comme ses battements d'ailes qui le font avancer en même temps qu'il s'élève dans les airs. \\\\
 		
 		\indent Étant donné que la carte de jeux a les mêmes dimensions que la fenêtre, la gestion du dépassement de map a été très simple à réaliser. Un simple test sur la position du personnage par rapport à la fenêtre nous permet donc de l'empêcher de voler plus haut que le bord supérieur, ou de tomber plus bas que le bord inférieur. \\
 
-		
+
+	\newpage
 		Exemple :
 		
 		\begin{mylisting}
@@ -178,7 +190,9 @@ else
 		
 				
 		\indent Du coté de la gestion des obstacles, nous les avons faits sous forme de rectangles qui contiennent les images des blocs. Nous avions dans un premier temps implémenté une collision basique, rectangulaire, qui fonctionnait avec ces rectangles. Cette collision fonctionnait assez bien mais notre oiseau est rond, et les images des obstacles ne sont pas forcément rectangulaire non plus, ce n'était donc pas la solution la plus optimale... \\
-		\indent Pour remédier à ce problème, l'idée nous est donc venue de passer par une collision par pixel, bien plus adaptée à l'utilisation que l'on en fait dans notre jeu. Le problème de cette collision, c'est qu'elle est très gourmande puisque même en étant optimisée au maximum, elle parcourt beaucoup de pixel. Il a donc fallut assembler les deux tests, collision rectangulaire puis par pixel afin de ne pas tester une collision par pixel avec le rectangle d'un bloc si il ne touche pas le rectangle du personnage. car si il n'y a pas d'obstacle nous n'avons donc pas besoin de regarder si il y a une collision \'a g\'erer, de plus nous n'avons pas besoin de g\'erer la collision de façon optimal pour les bonbons, donc pas besoin de perdre du temps machine pour quelque chose qui ne nous sert pas, soyons logique. Pour résumer nous avons fait un mix des deux grandes sortes de collisions (on est des oufs, ou pas...)
+		\indent Pour remédier à ce problème, l'idée nous est donc venue de passer par une collision par pixel, bien plus adaptée à l'utilisation que l'on en fait dans notre jeu. Le problème de cette collision, c'est qu'elle est très gourmande puisque même en étant optimisée au maximum, elle parcourt beaucoup de pixel. Il a donc fallut assembler les deux tests, collision rectangulaire puis par pixel afin de ne pas tester une collision par pixel avec le rectangle d'un bloc si il ne touche pas le rectangle du personnage. car si il n'y a pas d'obstacle nous n'avons donc pas besoin de regarder si il y a une collision à gérer, de plus nous n'avons pas besoin de gérer la collision de façon optimal pour les bonbons, donc pas besoin de perdre du temps machine pour quelque chose qui ne nous sert pas, soyons logique. Pour résumer nous avons fait un mix des deux grandes sortes de collisions (on est des oufs, ou pas...)
+		
+		\newpage
 	
 	\section{Son}
 		Nous savons que tout bon jeu est accompagné d'une vraie bibliothèque de sons, c'est pourquoi Mattou s'est vraiment concentrée sur cet aspect du projet, il a fallu tout d'abord qu'elle recherche les musiques et les effets sonores adéquats pour que l'ambiance lorsque vous êtes dans le jeu soit optimale. Puis nous voulions que ce soit très structuré dans le projet pour ne pas avoir des sons en vrac dans nos Contents, notre solution: utiliser Xact. 
@@ -290,8 +304,6 @@ else
 		
 	La fonction SaveMap : 
 			 
- 	\vspace{10mm}
-			 
 	 \begin{mylisting}
 	
       for (int j = 0; j < mapHeight; ++j)
@@ -367,12 +379,18 @@ else
 	 
 	\section{Site Web}
 	
-	URL du site web : 
+	\vspace{6mm}
+	
+	\noindent URL du site web : 
 	\begin{Verbatim}
 	http://www.CandyBird.eu/
 	\end{Verbatim}
 	
-	Dans un esprit pédagogue, nous avons choisis de réaliser notre site à la main plutôt que d'utiliser un CMS (Wordpress ou autre). T4ze avait déjà, auparavant, monté différents site web et il a ainsi pu s'occuper de cette partie sans trop de problèmes. Le site regroupe actuellement une présentation rapide de notre projet accompagnée d'images qui illustrent les différentes parties de notre jeu. Chaque membre du groupe a sa page personnelle, avec une petite présentation ainsi qu'une photo (la classe). Pour la partie pratique, vous pouvez télécharger nos différents rapports, en LaTeX ou en PDF, ainsi que la version du code source présenté lors des différentes soutenances directement depuis le site. De plus, une page est réservée à l'inscription (avec enregistrement de carte bleu tout ça tout ça... histoire de rembourser tous nos frais de l'année). Cette partie n'est pas obligatoire mais recommandée puisque qu'il faut se connecter au jeux pour accéder au mode multijoueur et avoir l'envoi de score en ligne en fin de partie.\\
+	\vspace{6mm}
+	
+	Dans un esprit pédagogue, nous avons choisis de réaliser notre site à la main plutôt que d'utiliser un CMS (Wordpress ou autre). T4ze avait déjà, auparavant, monté différents site web et il a ainsi pu s'occuper de cette partie sans trop de problèmes.
+	
+	Le site regroupe actuellement une présentation rapide de notre projet accompagnée d'images qui illustrent les différentes parties de notre jeu. Chaque membre du groupe a sa page personnelle, avec une petite présentation ainsi qu'une photo (la classe). Pour la partie pratique, vous pouvez télécharger nos différents rapports, en LaTeX ou en PDF, ainsi que la version du code source présenté lors des différentes soutenances directement depuis le site. De plus, une page est réservée à l'inscription (avec enregistrement de carte bleu tout ça tout ça... histoire de rembourser tous nos frais de l'année). Cette partie n'est pas obligatoire mais recommandée puisque qu'il faut se connecter au jeux pour accéder au mode multijoueur et avoir l'envoi de score en ligne en fin de partie.\\
 	\vspace{4mm}
 	
 	\begin{center}
@@ -409,8 +427,63 @@ else
 		
 	Le jeux étant en 2D, seul le profil de l'oiseau nous intéresse. Le personnage est donc géré via un spritesheet, une image qui comporte les détails des mouvement du personnage. Six animations s'enchainent en boucle pour faire bouger ses ailes et ses pattes rendant ainsi son vole plus réaliste.
 	
-
 	
+\newpage
+	\section{Répartitions des Tâches}
+	\vspace{8mm}
+	\begin{center}
+			\begin{tabular}{| l |*{4} {c|}}
+				\hline
+				Themes  & Mathilde & Florent & Thibault & Vincent \\
+				\hline
+				Son     & X &         & X    &        \\
+				\hline
+				Réseaux       &     & X       &       & X     \\
+				\hline
+				Mode Histoire     & X &     & X      &       \\
+				\hline
+				Mode Infini         & X &      &     &          \\
+				\hline
+				Menu et \'Etats        &  & X    &  &          \\
+								\hline
+				Moteur Physique & X      & X        & X &           \\
+				\hline
+				Editeur de Map &     &       & X     &  X\\
+				\hline
+				Site Internet  &    & X &     &  X       \\
+				\hline
+				Graphisme      & X  &  X  &         &\\
+				\hline
+				Courses/Repas      & X  &  X  &  X  & X\\
+				\hline
+				Vaisselle      & X  &     &         &\\
+				\hline
+				
+			\end{tabular}\\\vspace{3mm}
+	\end{center}
+	
+	\vspace{10mm}
+	
+	\section{Les chiffres}
+	\vspace{8mm}
+		\begin{center}
+				\begin{tabular}{| l |*{4} {c|}}
+				\hline
+				Bières & 50€ \\
+				\hline
+				Consommation électricité & 400 MW  \\
+				\hline
+				Consommation d'eau & 1 douche par jour (x4)  \\
+				\hline
+				Nourriture & 250€ \\
+				\hline
+				Code & 27 429 lignes  \\
+				\hline
+				Erreurs stupide & un gros paquet  \\
+				\hline
+					
+				\end{tabular}\\\vspace{3mm}
+		\end{center}
 	
 	
 \chapter{Et Après?}
@@ -447,8 +520,18 @@ else
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
 
-C'est bien stylé.
+Après un premier semestre de travail intense, nous pouvons ainsi dire que nous suivons la progression que nous avions prévue. Nous approchons de plus en plus d'un rendu jouable. Notre ambition a été mise à l'épreuve mais notre motivation nous a permit de garder le moral et d'arriver à nos fins. Nous conservons tout de même notre idée de départ qui est de présenter à la fin de la soutenance finale un jeu complet, totalement fonctionnel et, pourquoi pas, le distribuer à un maximum de joueur.\\
 
+Cette première partie nous à permit d'évaluer la quantité de travail à fournir pour les prévisions que l'on fait pour la suite, mais cette quantité de travail ne nous effraie plus. Nous somme très fière des réalisations de notre groupe ainsi que l'ambiance qui y règne.\\
+
+Nous espérons que notre jeux vous plaira et que nous seront capable de vous épater par ses améliorations.\\
+
+
+\vspace{10mm}
+		
+		\begin{center}
+		\includegraphics[scale=1.3]{images/birdfin.png}
+		\end{center}
 
 
 
