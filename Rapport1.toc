@@ -16,7 +16,7 @@
 \contentsline {section}{\numberline {1.10}Les chiffres}{16}
 \contentsline {chapter}{\numberline {2}Et Apr\IeC {\`e}s?}{17}
 \contentsline {section}{\numberline {2.1}Map Editor 2.0}{17}
-\contentsline {section}{\numberline {2.2}R\IeC {\'e}seaux Multijoueur}{17}
-\contentsline {section}{\numberline {2.3}Nouveaux Personnage}{17}
+\contentsline {section}{\numberline {2.2}R\IeC {\'e}seaux Multijoueurs}{17}
+\contentsline {section}{\numberline {2.3}Nouveaux Personnages}{17}
 \contentsline {section}{\numberline {2.4}Graphismes}{18}
 \contentsline {chapter}{Conclusion}{19}
